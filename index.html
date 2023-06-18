@@ -28,7 +28,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link " id="customer" href="#">Customer</a>
+                    <a class="nav-link " id="NavCustomer" href="#">Customer</a>
                 </li>
 
             </ul>
@@ -42,100 +42,118 @@
 </nav>
 
 <!--customer-->
-<section class="container-fluid" id="manageCustomer">
-    <div class="row" >
-        <div class="col" id="customerGrid01">
-            <h2 style="background-color:blue"> <i class="fa-solid fa-person-military-pointing" style="background-color:blue"></i>CUSTOMER</h2>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col" ><br>
-            <form class="form input-group-lg">
-                <div class="mb-3">
-                    <label for="txtSearchCustomer" class="form-label">Search :</label>
-                    <input type="text" class="form-control" id="txtSearchCustomer" placeholder="Input Name / NIC / Tp Here">
-                </div>
-                <div>
-                    <label for="selectName" class="form-label">Name :</label>
-                    <select class="form-select" aria-label="Default select example" id="selectName">
-                        <option selected>Open this select Name</option>
-                        <option value="1">Customer 01</option>
-                        <option value="1">Customer 02</option>
-                        <option value="1">Customer 03</option>
-                    </select>
-                </div><br>
-                <button type="submit" class="btn btn-primary" id="searchCustomer">SEARCH</button>
-            </form>
-        </div>
-
-        <div class="col" ><br>
-            <div class="row">
-                <form class="row input-group-sm" id="customerForm">
-                    <div class="col-md-4">
-                        <label for="customerID" class="form-label">Customer ID :</label>
-                        <input type="text" class="form-control" id="customerID" placeholder="C001">
-                    </div>
-
-                    <div class="col-md-5">
-                        <label for="customerName" class="form-label">Customer Name :</label>
-                        <input type="text" class="form-control" id="customerName" placeholder="Full Name">
-                    </div>
-
-                    <div class="col-3">
-                        <label for="customerAge" class="form-label">Age :</label>
-                        <input type="text" class="form-control" id="customerAge" placeholder="20">
-                    </div>
-
-                    <div class="col-md-4">
-                        <label for="customerSalary" class="form-label">Salary :</label>
-                        <input type="text" class="form-control" id="customerSalary" placeholder="12345.00">
-                    </div>
-
-                    <div class="col-8">
-                        <label for="CustomerAddress" class="form-label">Address :</label>
-                        <input type="text" class="form-control" id="CustomerAddress" placeholder="1234 Main St">
-                    </div>
-
-                </form>
+<section id="customer">
+    <h6>Home>Customers</h6>
+    <div class="container-fluid">
+        <div class="row" style=";background-color: #ffffff;border: 15px solid #f1f1f1;">
+            <div class="col-lg-12" style="padding: 0;">
+                <span style="padding-left: 10px">Customer Search</span>
             </div>
-
-            <div class="row" >
-                <div id="btnCrud">
-
-                    <button type="button" class="btn btn-outline-warning" id="btnSaveCustomer" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><i class="fa-solid fa-plus"></i>   SAVE</button>
-                    <button type="button" class="btn btn-outline-secondary"><i class="fa-solid fa-pen-to-square"></i>   UPDATE</button>
-                    <button type="button" class="btn btn-outline-success"><i class="fa-regular fa-circle-check"></i>   Reset</button>
-                    <button type="button" class="btn btn-outline-danger"><i class="fa-solid fa-trash"></i>   DELETE</button>
-                    <button type="button" class="btn btn-outline-light"><i class="fa-solid fa-arrows-rotate"></i>   REFRESH</button>
-                </div>
+            <div class="col-lg-9">
+                <input id="txtSearchCustomer" style="width: 95%;margin-left: 20px;margin-top: 20px;margin-bottom: 20px" type="text" placeholder="Input customer Name/Id Here">
             </div>
-
+            <div class="col-lg-1">
+                <button type="button" style="font-weight: bold;margin: 20px"  data-bs-target="#editCustomerModel" data-bs-toggle="modal" class="btn btn-primary">Search</button>
+            </div>
         </div>
-
-
-    </div>
-
-
-    <div class="row">
-        <div class="col"><br><br>
-            <table class="table table-dark table-hover " style="border: 2px solid white">
-                <thead>
-                <tr>
-                    <th scope="col">Customer ID</th>
-                    <th scope="col">Customer Name</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Salary</th>
-                    <th scope="col">TP</th>
-                </tr>
-                </thead>
-                <tbody id="customerTable">
-
-                </tbody>
-            </table>
+        <div class="row">
+            <dic class="col-lg-1">
+                <button disabled type="button" style="width: 100px;margin: 10px" data-bs-target="#editCustomerModel" data-bs-toggle="modal" id="btnCustomerEdit" class="btn btn-warning">Edit</button>
+                <div id="editCustomerModel" class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: #3498db">
+                                <h5 class="modal-title">Update Customer</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="txtEditCustomerID" class="form-label">Customer ID :</label>
+                                    <input type="text" class="form-control" id="txtEditCustomerID" placeholder="C001">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtEditCustomerNIC" class="form-label">Customer NIC :</label>
+                                    <input type="text" class="form-control" id="txtEditCustomerNIC" placeholder="200202502850">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtEditCustomerName" class="form-label">Customer Name :</label>
+                                    <input type="text" class="form-control" id="txtEditCustomerName" placeholder="Viraj">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtEditCustomerSalary" class="form-label">Salary :</label>
+                                    <input type="number" class="form-control" id="txtEditCustomerSalary" placeholder="1000000.00">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtEditCustomerAddress" class="form-label">Address :</label>
+                                    <input type="text" class="form-control" id="txtEditCustomerAddress" placeholder="Bandaragama">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" id="btnCustomerUpdate" class="btn btn-primary">Update</button>
+                                <button type="button" id="btnCustomerDelete" data-bs-dismiss="modal" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dic>
+            <dic class="col-lg-1">
+                <button type="submit" style="width: 100px;margin: 10px" data-bs-toggle="modal" data-bs-target="#newCustomerModel" class="btn btn-success">New</button>
+                <div id="newCustomerModel" class="modal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: #3498db">
+                                <h5 class="modal-title">New Customer</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="txtNewCustomerID" class="form-label">Customer ID :</label>
+                                    <input type="text" class="form-control" id="txtNewCustomerID" placeholder="C001">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtNewCustomerNIC" class="form-label">Customer NIC :</label>
+                                    <input type="text" class="form-control" id="txtNewCustomerNIC" placeholder="C001">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtNewCustomerName" class="form-label">Customer Name :</label>
+                                    <input type="text" class="form-control" id="txtNewCustomerName" placeholder="Viraj">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtNewCustomerSalary" class="form-label">Salary :</label>
+                                    <input type="number" class="form-control" id="txtNewCustomerSalary" placeholder="1000000.00">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="txtNewCustomerAddress" class="form-label">Address :</label>
+                                    <input type="text" class="form-control" id="txtNewCustomerAddress" placeholder="Bandaragama">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" id="btnCustomerSave" class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </dic>
         </div>
     </div>
+    <div class="my-custom-scrollbar table-wrapper-scroll-y" style="height: 339px">
+        <table id="tblCustomer" class="table" style="background-color: #ffffff">
+            <thead class="table-success">
+            <tr>
+                <th class="col-3">Customer ID</th>
+                <th class="col-3">NIC</th>
+                <th class="col-3">Name</th>
+                <th class="col-2">Salary</th>
+                <th class="col-2">Address</th>
+            </tr>
+            </thead>
+            <tbody id="tblCustomerBody">
 
+            </tbody>
+        </table>
+    </div>
 </section>
 
 <!--item-->
